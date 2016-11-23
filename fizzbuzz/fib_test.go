@@ -30,3 +30,12 @@ func TestFizzbuzzShouldReturnBuzz(t *testing.T) {
 		t.Errorf("Fizzbuzz(5) should return buzz, %q is returned", result)
 	}
 }
+
+func TestFizzbuzzShouldReturnFizzbuzz(t *testing.T) {
+
+	result := Fizzbuzz(15)
+
+	if result != "fizzbuzz" {
+		t.Errorf("Fizzbuzz(15) should return fizzbuzz, %q is returned", result)
+	}
+}

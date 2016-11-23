@@ -1,18 +1,30 @@
 package fizzbuzz
 
 import (
+	"bytes"
 	"strconv"
 )
 
+const REASON_FIZZ = 3
+const REASON_BUZZ = 5
+const WORD_FIZZ = "fizz"
+const WORD_BUZZ = "buzz"
+
 func Fizzbuzz(s int) string {
 
-	if (s % 3) == 0 {
-		return "fizz"
+	var result bytes.Buffer
+
+	if (s % REASON_FIZZ) == 0 {
+		result.WriteString(WORD_FIZZ)
 	}
 
-	if (s % 5) == 0 {
-		return "buzz"
+	if (s % REASON_BUZZ) == 0 {
+		result.WriteString(WORD_BUZZ)
 	}
 
-	return strconv.Itoa(s)
+	if ((s % REASON_FIZZ) != 0) && ((s % REASON_BUZZ) != 0) {
+		result.WriteString(strconv.Itoa(s))
+	}
+
+	return result.String()
 }
