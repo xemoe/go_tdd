@@ -1,6 +1,7 @@
 package fizzbuzz
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -41,5 +42,21 @@ func TestFizzbuzzShouldReturnFizzbuzz(t *testing.T) {
 
 	if result != "fizzbuzz" {
 		t.Errorf("Fizzbuzz(15) should return fizzbuzz, %q is returned", result)
+	}
+}
+
+func TestFizzBuzzContainerShouldReturnArrayOfExpectedValue(t *testing.T) {
+
+	fb_array := FizzbuzzContainer()
+	result := fb_array([]int{1, 2, 3, 4, 5})
+
+	if result == nil {
+		t.Errorf("FizzbuzzContainer({...}) should not return nil")
+	}
+
+	expected := []string{"1", "2", "fizz", "4", "buzz"}
+
+	if !reflect.DeepEqual(expected, result) {
+		t.Errorf("FizzbuzzContainer({...}) should return expected array, %q is returned", result)
 	}
 }
