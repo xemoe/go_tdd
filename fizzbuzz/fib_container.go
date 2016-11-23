@@ -4,10 +4,10 @@ func FizzbuzzContainer() func([]int) []string {
 	return func(input []int) []string {
 
 		to_string := Fizzbuzz()
-		result := make([]string, len(input))
+		result := make([]string, 0)
 
-		for index, num := range input {
-			result[index] = to_string(num)
+		for _, num := range input {
+			result = append(result, to_string(num))
 		}
 
 		return result
