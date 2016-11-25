@@ -1,3 +1,8 @@
+//
+// @author Teerapong ladlee
+// @update 2016-11-25
+//
+
 package fizzbuzz
 
 import (
